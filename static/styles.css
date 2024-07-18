@@ -1,0 +1,57 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height: 110vh;
+    background-color: hsl(158, 36%, 73%);
+}
+
+img {
+    /* max-width: 100%;
+    height: 80; */
+    margin-right: 20px;
+ 
+   
+}
+
+h1{
+   
+    font-size: 28px;
+    color: #ffffff;
+}
+
+
+.service{
+    display: flex;
+
+}
+.form-nutrion{
+    display: flex; 
+}
+
+.img-container {
+    position: relative; 
+    margin-left: 20px;
+    margin-bottom: 100px;
+}
+
+.Deficiencies {
+    position: absolute;
+    top: 100px; /* Adjust this value to position the box vertically */
+    left: 15px; 
+    background-color: rgba(255, 255, 255, 0.8); /* White box with some transparency */
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.align-container{
+    display: flex; 
+}
