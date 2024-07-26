@@ -6,8 +6,10 @@ import pickle
 
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'secretKey'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/smartPlantation'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:aQ7lG5a5A4N3bSFb@cluster0.mlod4ao.mongodb.net/plantationProject'
 mongo = PyMongo(app)
+db = mongo.db
+
 
 # crop_recommendation_model_path = 'models/crop_recommendation.pkl'
 # crop_recommendation_model = pickle.load(open(crop_recommendation_model_path, 'rb'))
