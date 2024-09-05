@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Plantation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+<body class="background-image1">
 
 <style>
     html body {
@@ -39,7 +49,8 @@ button {
   
 
   <br /><br />
-  <h2 style="text-align: center; margin: 0px; color: black">
+  <div class="container2">
+  <h2 style="text-align: center; margin: 0px; color: rgb(0, 0, 0)">
     <b>Share Your Nutrition Details to Predict Potential Deficiencies!</b>
   </h2>
   <br />
@@ -49,10 +60,11 @@ button {
       width: 350px;
       height: 40rem;
       margin: 0px auto;
-      color: black;
+      color: rgb(9, 9, 9);
       border-radius: 25px;
       padding: 10px 10px;
     "
+   
   >
     <form method="POST" action="{{ url_for('crop_deficiency') }}">
         
@@ -98,11 +110,11 @@ button {
 
 
       <div style="padding: 10px 10px;">
-        <label for="Pottasium" style="font-size: 17px"><b>PH</b></label>
+        <label for="Pottasium" style="font-size: 17px"><b>ph</b></label>
         <input
           type="number"
-          id="PH"
-          name="PH"
+          id="ph"
+          name="ph"
           placeholder="Enter value-1,2,3,...."
           style="font-weight: bold"
           required
@@ -166,3 +178,6 @@ button {
       </div>
     </form>
   </div>
+</div>
+</body>
+</html>

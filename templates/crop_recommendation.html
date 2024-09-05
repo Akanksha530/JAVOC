@@ -1,4 +1,13 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Plantation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+<body class="background-image2">
 <style>
     html body {
       background-color: rgb(196, 232, 214);
@@ -39,7 +48,8 @@ button {
   
 
   <br /><br />
-  <h2 style="text-align: center; margin: 0px; color: black">
+  <div class="container2"> 
+    <h2 style="text-align: center; margin: 0px; color: rgb(7, 7, 7)">
     <b>Discover the ideal crop for your farm</b>
   </h2>
   <br />
@@ -49,11 +59,12 @@ button {
       width: 350px;
       height: 40rem;
       margin: 0px auto;
-      color: black;
+      color: rgb(0, 0, 0);
       border-radius: 25px;
-      padding: 10px 10px;
-    "
-  >
+      padding: 10px 10px;"
+     
+   
+>
     <form method="POST" action="{{ url_for('crop_prediction') }}">
         
       <div style="padding: 10px 10px;">
@@ -97,11 +108,11 @@ button {
       </div>
 
       <div style="padding: 10px 10px;">
-        <label for="Temprature" style="font-size: 17px"><b>Temprature</b></label>
+        <label for="Temperature" style="font-size: 17px"><b>Temperature</b></label>
         <input
           type="number"
-          id="Temprature"
-          name="temprature"
+          id="Temperature"
+          name="temperature"
           placeholder="Enter value-10,15,20,25...."
           style="font-weight: bold"
           required
@@ -152,3 +163,6 @@ button {
       </div>
     </form>
   </div>
+  </div>
+</body>
+</html>

@@ -3,48 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Plantation</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+    <title>Smart Plantation Monitoring System</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="background-image">
 
-    {% if session.get('user') %}
-        <a href="{{ url_for('logout') }}">Logout</a> <br>
-    {% else %}
-        <a href="{{ url_for('login') }}">Login</a> <br>
-        <a href="{{ url_for('register') }}">Register</a>
-    {% endif %}
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <!-- Overlay for Transparency -->
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>SMART PLANTATION MONITORING</h1>
+            <p>Empowering Modern Agriculture with Cutting-Edge Technology</p>
+            <a href="{{ url_for('services') }}" class="cta-button">Get Started</a>
+        </div>
+    </header>
 
-    <div class="container">
-        <img src="{{ url_for('static', filename='images/index0.jpg') }}" alt="Smart Plantation Image" style="width: 100%; height: 80%;"> 
-        <h1 style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%);">Smart Plantation Monitoring for Yield Optimization</h1>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-heading">
+                <img src="{{ url_for('static', filename='S.png') }}" alt="Smart Plantation Logo" id="logo">
+                <h1 class="navbar-heading">SMART<br>Plantation</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('request') }}">Request a Quote</a></li>
+                {% if session.get('user') %}
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+            <a href="{{ url_for('contact_us') }}" class="cta-button">Contact Us</a>
+        </div>
+    </nav>
 
-    <section class="align-container">
-        <div>
-            <h2 class="text-center">Our Services</h2>
-            <div>
-                <div class="img-container">
-                    <img src="{{ url_for('static', filename='images/index2.jpg') }}" class="img-fluid" alt="" style="width: 25%; height: 10%;">
-                    <a href="{{ url_for('first') }}"> 
-                        <div class="Deficiencies">
-                            <h4>Crop Deficiency</h4>
-                            <p class="mt-2">Tells the deficiency in your field for your crop</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="img-container">
-                    <img src="{{ url_for('static', filename='images/index3.jpg') }}" class="img-fluid" alt="" style="width: 25%; height: 10%;">
-                    <a href="{{ url_for('second') }}"> 
-                        <div class="Deficiencies">
-                            <h4>Crop Recommendations</h4>
-                            <p class="mt-2">Suggestions for the best crops to grow based on your specific conditions</p>
-                        </div>
-                    </a>
-                </div>
-            </div> 
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="content-container">
+            <h2>Welcome to Smart Plantation Monitoring System</h2>
+            <p>
+                Our Smart Plantation Monitoring System is designed to optimize farming productivity by leveraging advanced sensor technology and data analytics. 
+                Whether you are managing a small garden or a large agricultural operation, our system provides real-time insights into soil moisture levels, 
+                weather conditions, and plant health.
+            </p>
+            <p>
+                With our monitoring system, you can make informed decisions on irrigation, fertilization, and pest control, ensuring that your crops 
+                receive the care they need to thrive. Our technology is easy to use, customizable, and scalable to fit the needs of any size plantation.
+            </p>
+            <p>
+                Join the revolution in smart agriculture and take your plantation management to the next level. Explore our services, learn how our system works, 
+                and discover how we can help you achieve higher yields and more sustainable farming practices.
+            </p>
         </div>
     </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2024 Smart Plantation Monitoring System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Link to External JavaScript -->
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>

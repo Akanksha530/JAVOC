@@ -4,18 +4,17 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import numpy as np
 import pickle
 
+
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'secretKey'
 app.config['MONGO_URI'] = 'mongodb+srv://admin:aQ7lG5a5A4N3bSFb@cluster0.mlod4ao.mongodb.net/plantationProject'
 mongo = PyMongo(app)
 db = mongo.db
+crop_recommendation_model_path = 'models/crop_recommendation.pkl'
+crop_recommendation_model = pickle.load(open(crop_recommendation_model_path, 'rb'))
 
-
-# crop_recommendation_model_path = 'models/crop_recommendation.pkl'
-# crop_recommendation_model = pickle.load(open(crop_recommendation_model_path, 'rb'))
-
-# deficiency_prediction_model_path = 'models/Deficiency_prediction.pkl'
-# deficiency_prediction_model = pickle.load(open(deficiency_prediction_model_path, 'rb'))
+deficiency_prediction_model_path = 'models/Deficiency_prediction.pkl'
+deficiency_prediction_model = pickle.load(open(deficiency_prediction_model_path, 'rb'))
 
 @app.route('/')
 def index():
@@ -59,7 +58,7 @@ def register():
         }
         app.logger.debug(f"Inserting new user: {new_user}")
         try:
-            mongo.db.users.insert_one(new_user)
+            db.users.insert_one(new_user)
             flash('Registration successful! You can now log in.', 'success')
             return redirect(url_for('login'))
         except Exception as e:
@@ -73,6 +72,31 @@ def logout():
     session.pop('user', None)
     flash('You have been logged out.', 'success')
     return redirect(url_for('index'))
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/services')
+def services():
+    return render_template('services.html')
+
+
+@app.route('/contact_us')
+def contact_us():
+    return render_template('contact_us.html')
+
+@app.route('/request')
+def request():
+    return render_template('request.html')
+
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
+    # Handle the form submission logic here (e.g., save to database, send email, etc.)
+    return "Message sent successfully!"
 
 @app.route('/crop-predict', methods=['POST'])
 def crop_prediction():
@@ -104,6 +128,8 @@ def crop_deficiency():
         final_prediction = my_prediction[0]
         
         return render_template('deficiency_result.html', prediction=final_prediction)
-
+@app.route('/disease')
+def disease():
+    return render_template('disease.html')
 if __name__ == "__main__":
     app.run(port=5555, debug=True)

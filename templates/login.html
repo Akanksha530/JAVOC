@@ -6,7 +6,7 @@
     <title>Login - Smart Plantation Monitoring</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
-<body>
+<body class="background-image">
     <div class="login-container">
         <h2>Login</h2>
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -28,10 +28,27 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+
+            <div class="show-password-container">
+                <input type="checkbox" id="show-password" onclick="togglePassword()">
+                <label for="show-password">Show Password</label>
+            </div>
+
             <button type="submit">Login</button>
         </form>
 
         <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
     </div>
+
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
